@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace libros.Models
 {
-    public class Responses
+    public class Answers
     {
-        public List<int> PrimeroPares { get; set; }
+        public int[] PrimeroPares { get; set; }
 
-        public List<int> PrimeroImpares { get; set; }
+        public int[] PrimeroImpares { get; set; }
 
         public int SegundoHombres { get; set; }
 
@@ -16,6 +16,6 @@ namespace libros.Models
 
         public int SegundoMayorTreinta { get; set; }
 
-        public List<Usuario> SegundoUsuarios { get; set; }
+        public IEnumerable<Usuario> SegundoUsuarios { get; set; }
     }
 }
