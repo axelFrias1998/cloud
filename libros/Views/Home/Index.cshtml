@@ -1,4 +1,6 @@
-﻿@{
+﻿@model libros.Models.Responses
+
+@{
     ViewData["Title"] = "Home Page";
 }
 <!-- Image Showcases-->
@@ -18,16 +20,6 @@
             <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
             <div class="col-lg-6 my-auto showcase-text">
                 <h2>2. Linq</h2>
-                <p class="lead mb-0">
-                    List<Usuario> listUsuarios = new List<Usuario>();
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">listUsuarios.Add(new Usuario { IdUsuario=1, Nombre=”Francisco Alvarez”, Edad=20, Sexo=”H” });</li>
-                        <li class="list-group-item">listUsuarios.Add(new Usuario { IdUsuario=4, Nombre=”Karla Fernandez”, Edad=24}, Sexo=”M” });</li>
-                        <li class="list-group-item">istUsuarios.Add(new Usuario { IdUsuario=11, Nombre=”Andres Morales”, Edad=28, Sexo=”H” });</li>
-                        <li class="list-group-item">listUsuarios.Add(new Usuario { IdUsuario=13, Nombre=”Jose Garcia”, Edad=23, Sexo=”H” });</li>
-                        <li class="list-group-item">listUsuarios.Add(new Usuario { IdUsuario=3, Nombre=”Maria Gonzalez”, Edad=30, Sexo=”M” });</li>
-                    </ul>
-                </p><br>
                 <p class="lead mb-0"></p>
                     A) Realiza consultas mediante Linq que arrojen los siguientes resultados:
                     <ul class="list-group list-group-flush">
@@ -48,6 +40,52 @@
                 <p>
                     B) Usuarios cuyo Id se encuentre en <strong>int[] ids = {1,4,13}</strong> 
                 </p>
+            </div>
+        </div>
+        @* Cuarta pregunta *@
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>4. Ajax</h2>
+            </div>
+        </div>
+        @* Quinta pregunta *@
+        <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>5. Stored Procedures</h2>
+                <p>
+                    Consulta para obtener registros por escritor, género o precio:
+                </p>
+            </div>
+        </div>
+        @* Sexta pregunta *@
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>6. Actions</h2>
+                <p class="lead mb-0"></p>
+                    A) Obtener un libro por id:
+                </p>
+                <p>
+                    B) Actualizar libro
+                </p>
+                <p>
+                    C) Load partial view
+                </p>
+                <p>
+                    D) Formulario Ajax/Helpers
+                </p>
+            </div>
+        </div>
+        @* Séptima pregunta *@
+        <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>7. Blob Storage</h2>
+                <p>
+                    Carga de archivo
+                </b>
             </div>
         </div>
     </div>
