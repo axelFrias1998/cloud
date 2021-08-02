@@ -17,5 +17,7 @@ namespace libros.Models
         public int SegundoMayorTreinta { get; set; }
 
         public IEnumerable<Usuario> SegundoUsuarios { get; set; }
+
+        public IEnumerable<string> Blobs { get; set; }
     }
 }

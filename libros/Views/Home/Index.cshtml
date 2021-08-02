@@ -8,10 +8,7 @@
     <div class="container-fluid p-0 bg-light">
         @* Primera pregunta *@
         <div class="row g-0">
-            <div class="col-lg-6 order-lg-2">
-                <img src="imgs/primeraPregunta.png" style="height: 100%; width: 100%;">
-            </div>
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <div class="col-lg-6 order-lg-1 order-sm-1 my-auto showcase-text">
                 <h2>1. Expresiones lambda</h2>
                 <p>
                     Obtén los números pares e impares del siguiente arreglo: <strong>int[] numeros = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};</strong>
@@ -25,13 +22,13 @@
                     @string.Join(", ", Model.PrimeroPares) 
                 </p>
             </div>
+            <div class="col-lg-6 order-lg-2 order-sm-2">
+                <img src="imgs/primeraPregunta.png" style="height: 100%; width: 100%;">
+            </div>
         </div>
         @* Segunda pregunta *@
         <div class="row g-0">
-            <div class="col-lg-6 text-white showcase-img" >
-                <img src="imgs/segundaPregunta.png" style="height: 100%; width: 100%;">
-            </div>
-            <div class="col-lg-6 my-auto showcase-text">
+            <div class="col-lg-6 order-lg-2 order-sm-1 my-auto showcase-text">
                 <h2>2. Linq</h2>
                 <p class="lead mb-0"></p>
                     A) Realiza consultas mediante Linq que arrojen los siguientes resultados:
@@ -65,18 +62,55 @@
                 </p>
 
             </div>
+            <div class="col-lg-6 order-lg-1 order-sm-2 text-white showcase-img" >
+                <img src="imgs/segundaPregunta.png" style="height: 100%; width: 100%;">
+            </div>
+        </div>
+        @* Tercera pregunta *@
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 order-sm-2">
+                <img src="imgs/terceraPregunta.png" style="height: 100%; width: 100%;">
+            </div>
+            <div class="col-lg-6 order-lg-1 order-sm-1 my-auto showcase-text">
+                <h2>3. EF Core code first</h2>
+                <p>
+                    Creación del modelo <strong>Libros</strong>
+                </p>
+                <p>
+                    Se crea una migración llamada <strong>libros</strong> y se aplica en MSSQL
+                    con <strong>dotnet ef database update</strong>.
+                    La cadena de conexión se hizo para MSSQL en Ubuntu, por lo que no se puede 
+                    utilizar con Trusted_Connection. Dejo el proyecto con la DefaultConnection
+                    en el appsettings.json para que puedan realizar las pruebas necesarias.
+                </p>
+            </div>
+            
         </div>
         @* Cuarta pregunta *@
         <div class="row g-0">
-            
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <div class="col-lg-6 order-lg-1 order-sm-2">
+                <img src="imgs/cuartaPregunta.png" style="height: 100%; width: 100%;">
+            </div>
+            <div class="col-lg-6 order-lg-2 order-sm-1 my-auto showcase-text">
                 <h2>4. Ajax</h2>
+                <p>
+                    Solicitud POST mediante Ajax de un id entero con un mensaje de resultado al terminar la petición
+                </p>
+                <p>
+                    ID: <input type="number" name="ajaxId" id="ajaxId" placeholder="ID"/>
+                    <input type="button" value="Pruébame" id="btnAjaxId"/>
+                </p>
+                <p>
+                    <span id="ajaxResultId"></span>
+                </p>
             </div>
         </div>
         @* Quinta pregunta *@
         <div class="row g-0">
-            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
-            <div class="col-lg-6 my-auto showcase-text">
+            <div class="col-lg-6 order-lg-2 order-sm-2">
+                <img src="imgs/quintaPregunta.png" style="height: 100%; width: 100%;">
+            </div>
+            <div class="col-lg-6 order-lg-1 order-sm-1 my-auto showcase-text">
                 <h2>5. Stored Procedures</h2>
                 <p>
                     Consulta para obtener registros por escritor, género o precio:
@@ -85,32 +119,170 @@
         </div>
         @* Sexta pregunta *@
         <div class="row g-0">
-            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
-            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <div class="col-lg-6 order-lg-1 order-sm-2">
+                <img src="imgs/sextaPregunta.png" style="height: 100%; width: 100%;">
+            </div>
+            <div class="col-lg-6 order-lg-2 order-sm-1 my-auto showcase-text">
                 <h2>6. Actions</h2>
                 <p class="lead mb-0"></p>
+                    0) Insertar un libro:<br>
+                    <table>
+                        <tr>
+                            <td><label>Título: </label></td>
+                            <td><input type="text" id="txtLibro"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Escritor: </label></td>
+                            <td><input type="text" id="txtEscritor"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Género: </label></td>
+                            <td><input type="text" id="txtGenero"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Existencia:</label></td>
+                            <td><input type="number" id="txtExistencia"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Precio:</label></td>
+                            <td><input type="number" id="txtPrecio"></td>
+                        </tr>
+                    </table>
+                    <input type="button" value="Crear" id="btnCrearLibro">
+                </p>
+                <p class="lead mb-0"></p>
                     A) Obtener un libro por id:
+                    <div class="form-group">
+                        <label>ID:</label> <input type="number" id="txtLibroId">
+                        <input type="button" value="Buscar" id="btnLibro">
+                    </div>
+                    <center>
+                        <div id="busquedaLibroResult"></div>
+                    </center>
                 </p>
                 <p>
                     B) Actualizar libro
+                    <table>
+                        <tr>
+                            <td><label>Id: </label></td>
+                            <td><input type="text" id="txtLibroIdUpdate"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Título: </label></td>
+                            <td><input type="text" id="txtLibroUpdate"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Escritor: </label></td>
+                            <td><input type="text" id="txtEscritorUpdate"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Género: </label></td>
+                            <td><input type="text" id="txtGeneroUpdate"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Existencia:</label></td>
+                            <td><input type="number" id="txtExistenciaUpdate"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Precio:</label></td>
+                            <td><input type="number" id="txtPrecioUpdate"></td>
+                        </tr>
+                    </table>
+                    <input type="button" value="Actualizar" id="btnActualizarLibro">
+                    <center>
+                        <div id="actualizacionLibroResult"></div>
+                    </center>
                 </p>
                 <p>
                     C) Load partial view
-                </p>
-                <p>
-                    D) Formulario Ajax/Helpers
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="button" id="btnGetLibros" value="Buscar Libros" />
+                        </div>
+                    </div>
+                    <center>
+                        <div id="librosResult"></div>
+                    </center>
                 </p>
             </div>
         </div>
         @* Séptima pregunta *@
         <div class="row g-0">
-            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
-            <div class="col-lg-6 my-auto showcase-text">
+            <div class="col-lg-6 order-lg-2 order-sm-2">
+                <img src="imgs/quintaPregunta.png" style="height: 100%; width: 100%;">
+            </div>
+            <div class="col-lg-6 order-lg-1 order-sm-1 my-auto showcase-text">
                 <h2>7. Blob Storage</h2>
                 <p>
                     Carga de archivo
-                </b>
+                    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+                        <span>
+                            <input type="file" name="files" multiple/> <br>
+                            <input type="submit" value="Cargar" />
+                        </span>
+                    }
+                </p>
+                <p>
+                    Disponibles: 
+                    <ul class="list-group list-group-flush">
+                        @foreach (var file in Model.Blobs)
+                        {
+                            <li class="list-group-item">
+                                Archivo: <strong>@file</strong>
+                            </li>
+                            
+                        }
+                    </ul>
+                </p>
             </div>
         </div>
     </div>
 </section>
+<script>
+    $(function () {
+        $("#btnAjaxId").click(function () {
+            var url = "@Url.Action("AjaxForm","Home")";
+            var data = { id : $("#ajaxId").val()};
+            $.post(url, data).done(function(data){
+                $("#ajaxResultId").html(data);
+            });
+        });
+        $("#btnGetLibros").click(function() {
+            var url = "@Url.Action("GetPartialLibros","Home")";
+            $('#librosResult').load(url);
+        })
+        $("#btnLibro").click(function() {
+            var url = "@Url.Action("GetPartialLibro","Home")";
+            var data = { id : $("#txtLibroId").val()}
+            $('#busquedaLibroResult').load(url, data);
+        })
+        $("#btnActualizarLibro").click(function () {
+            var url = "@Url.Action("ActualizarLibro", "Home")";
+            var data = {
+                IdLibro : $("#txtLibroIdUpdate").val(),
+                Titulo : $("#txtLibroUpdate").val(),
+                Escritor : $("#txtEscritorUpdate").val(),
+                Genero : $("#txtGeneroUpdate").val(),
+                Existencia : $("#txtExistenciaUpdate").val(),
+                Precio : $("#txtPrecioUpdate").val()
+            };
+            $.post(url, data).done(function (data){
+                $('#actualizacionLibroResult').load(data);
+            });
+        });
+        $("#btnCrearLibro").click(function () {
+            var url = "@Url.Action("CrearLibro", "Home")";
+            var data = {
+                IdLibro : null,
+                Titulo : $("#txtLibro").val(),
+                Escritor : $("#txtEscritor").val(),
+                Genero : $("#txtGenero").val(),
+                Existencia : $("#txtExistencia").val(),
+                Precio : $("#txtPrecio").val()
+            };
+            $.post(url, data).done(function (data){
+                alert(`Libro ${$("#txtLibro").val()} insertado`)
+            });
+        });
+    });
+</script>2
