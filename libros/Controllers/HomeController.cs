@@ -12,6 +12,7 @@ using System.IO;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
+using Microsoft.Extensions.Configuration;
 
 namespace libros.Controllers
 {
@@ -19,11 +20,13 @@ namespace libros.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IConfiguration configuration)
         {
             _logger = logger;
             _context = context;
+            _configuration = configuration;
         }
 
         public async Task<IActionResult> Index()
@@ -72,7 +75,7 @@ namespace libros.Controllers
         
         public async Task<IEnumerable<string>> GetFiles()
         {
-            var containerClient = new BlobContainerClient("DefaultEndpointsProtocol=https;AccountName=cloudblobtest;AccountKey=hhpoUFX2OX3dgBun2GSwalF5Yd/HPpCZrpGrLNM/PhOK78ovV1S1YIcj76CH2NFlTkl2sVPP7m8RY1/MdPtAwQ==;EndpointSuffix=core.windows.net", "files");
+            var containerClient = new BlobContainerClient(_configuration.GetValue<string>("AzureBlobStorageConnectionString"), "files");
             var items = new List<string>();
             await foreach(var blobItem in containerClient.GetBlobsAsync())
             {
@@ -84,7 +87,7 @@ namespace libros.Controllers
         [HttpPost]
         public IActionResult Upload()
         {
-            var containerClient = new BlobContainerClient("DefaultEndpointsProtocol=https;AccountName=cloudblobtest;AccountKey=hhpoUFX2OX3dgBun2GSwalF5Yd/HPpCZrpGrLNM/PhOK78ovV1S1YIcj76CH2NFlTkl2sVPP7m8RY1/MdPtAwQ==;EndpointSuffix=core.windows.net", "files");
+            var containerClient = new BlobContainerClient(_configuration.GetValue<string>("AzureBlobStorageConnectionString"), "files");
             
             foreach (var file in Request.Form.Files)
             {
